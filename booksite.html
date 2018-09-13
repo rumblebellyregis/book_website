@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+   
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.css" />
+
+    <link href="booksite.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+
+  <style type="text/css">
+    #fancybox-left-ico {
+left: 20px;
+}
+
+#fancybox-right-ico {
+right: 20px;
+left: auto;
+}
+    </style>
+    </head>
+   <body>
+
+               
+          <div class="row">
+        
+         
+                 <div id="vue-app">
+                  <div v-if="loading">
+              <img src="wheeloftime.jpeg" class="col-lg-12" alt="wheel_of_time" ></div>
+   
+          <div class= "col-lg-8 col-lg-offset-2" v-if="!loading">
+                 <header>
+                     <div class= "headerwrapper col-lg-12">
+                       <div class= "imgpart col-lg-4">  <img src="Wheel-icon.svg"  alt="wheel_of_time" height="150px" width="150px">  </div>  
+                       <div class= "searchpart col-lg-8">  <input type="text" class="input" v-model="search" placeholder="Search title.."/>  </div>    
+                     </div>    
+                     
+                 </header>
+                 
+                
+             
+          
+           <div class="flip-container col-lg-4"  v-for="(book,index) in filteredList" ontouchstart="this.classList.toggle('hover')" >
+              <div class=" flipper">
+               <div class="front col-lg-10 col-lg-offset-1"   >
+                   <img v-bind:src="book.detalle" class="col-lg-12" alt="book.idioma" >
+               </div>
+               <div class="back col-lg-10 col-lg-offset-1"    ><h1>{{book.titulo}}</h1>
+               <p>{{book.descripcion}}</p>
+               
+                      <a class="button" v-bind:href.prevent="book.portada" data-fancybox="images" rel="gallery1" data-caption="index">Click me</a>
+        
+               </div>
+               </div>
+               
+           </div>
+             
+              </div>
+           
+              </div>
+           
+       </div>
+    <script src="booksite.js" ></script>
+
+</body>
+
+</html>

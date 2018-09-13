@@ -1,0 +1,119 @@
+body {
+    background-image:url("wot.jpg");}
+   
+
+
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	
+	height: 300px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    justify-content: center;
+	transform: rotateY(180deg);
+} 
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  
+}
+
+.modal-container {  
+  max-height:70%;
+  margin: 0px auto; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+.modal-leave-active {
+  opacity: 0;
+}
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.modal-header{
+    display:flex;
+    justify-content: space-between;
+    top:0;
+}
+.modal-body{
+    display: flex;
+    justify-content: center;
+}
+h1{color:cornsilk;
+    font-size: 18px;
+}
+p{
+    color: beige;
+    font-size:12px;
+}
+.headerwrapper{
+    display:flex;
+    align-content: center;
+    justify-content: flex-end;
+    margin-bottom: 5%;
+        
+}
+.searchpart{
+    align-self: center;
+}
+.imgpart{
+    justify-content: flex-start;
+}
+.input{
+    color: palegoldenrod;
+    margin-left:65%;
+    width:60%;
+    background-color: transparent;
+}
+input, select, textarea{
+    color: palegoldenrod;
+}
